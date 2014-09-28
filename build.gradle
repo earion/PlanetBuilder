@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'jacoco'
 
 group = 'com.mbatok'
 version = '1.0-SNAPSHOT'
@@ -27,6 +28,13 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version:'1.14.4'
     testCompile group: 'org.assertj', name: 'assertj-core', version:'1.6.1'
 }
+
+jacocoTestReport {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+}
+
 
 task hello {
     doLast {
