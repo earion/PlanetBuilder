@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.mbatok'
+version = '1.0-SNAPSHOT'
+
+description = "Project based on Marcin Stachniuk repository mstachniuk.blogspot.com"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.apache.maven.surefire', name: 'surefire-junit4', version:'2.13'
+    compile group: 'org.apache.maven.plugins', name: 'maven-resources-plugin', version:'2.6'
+    compile group: 'junit', name: 'junit', version:'4.11'
+    compile group: 'org.hamcrest', name: 'hamcrest-all', version:'1.3'
+    compile group: 'org.easytesting', name: 'fest-assert-core', version:'2.0M8'
+    compile group: 'org.easytesting', name: 'fest-assertion-generator', version:'1.0'
+    compile group: 'pl.pragmatists', name: 'JUnitParams', version:'1.0.2'
+    compile group: 'com.googlecode.catch-exception', name: 'catch-exception', version:'1.2.0'
+    compile group: 'org.projectlombok', name: 'lombok', version:'1.14.4'
+    testCompile group: 'org.assertj', name: 'assertj-core', version:'1.6.1'
+}
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+task upper << {
+    String something = 'something value'
+    println "Original: " + something
+    println "Upper:    " + something.toUpperCase();
+}
+
+

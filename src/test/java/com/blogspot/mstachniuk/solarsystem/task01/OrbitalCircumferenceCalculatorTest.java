@@ -22,9 +22,13 @@ public class OrbitalCircumferenceCalculatorTest {
     public void shouldCalculateOrbitalCircumferenceForMercury() {
         // given
         OrbitalCircumferenceCalculator calculator = new OrbitalCircumferenceCalculator();
-        Planet mercury = new Planet("Mercury", RotationDirection.LEFT,
-                Distance.createFromMeter(new BigDecimal("4879400")),
-                new SiderealYear(new BigDecimal("87.96935")));
+
+        Planet mercury = new PlanetBuilder().setName("Mercury")
+                .setRotationDirection(RotationDirection.rotationDirection.LEFT)
+                .setDistance("4879400")
+                .setSideralYear("87.96935")
+                .build();
+
         mercury.setAvgOrbitalSpeed(Speed.createKmPerSecond("47.362"));
         mercury.setAcceleration(3.701);
         Set<Gas> gases = new HashSet<>();
