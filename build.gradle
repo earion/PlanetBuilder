@@ -38,7 +38,7 @@ jacocoTestReport {
 
 task hello {
     doLast {
-        println 'Hello world!'
+        println 'Hello world by gradle!'
     }
 }
 task upper << {
